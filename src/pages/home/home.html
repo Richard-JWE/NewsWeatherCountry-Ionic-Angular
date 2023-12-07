@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      G00411237
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="goSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="text-align: center; margin: 15px;">
+    <h2>Capital:</h2>
+    <ion-grid>
+      <ion-row *ngFor="let data of result">
+        <ion-col width-50 offset-25>
+          <h2>{{ data.capital ? data.capital : ' not found ' }}, {{ data.name.common ? data.name.common : 'Country not
+            found' }}</h2>
+          <h2>{{ data.flag ? data.flag : 'not found' }}</h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-card *ngIf="cityNotFound">
+      <ion-card-content>
+        {{ cityNotFound }} not found. Please try another city in settings.
+        <button ion-button (click)="goSettings()">Go to Settings</button>
+      </ion-card-content>
+    </ion-card>
+
+    <br><br>
+
+    <!-- Div for each location, with *ngFor to display all available (Template) -->
+    <div class="weatherItem" *ngFor="let location of locationsArray">
+      <ion-card lines="none">
+        <ion-item><strong>Weather for: {{ location.location }}</strong></ion-item>
+        <ion-item><strong>Temperature: {{ location.weather }}</strong> <span
+            [innerHTML]="weatherSymbol"></span></ion-item>
+        <ion-item><strong>Country Code: {{ location.cityName }}</strong></ion-item>
+        <ion-item><strong>Description: {{ location.description }}</strong></ion-item>
+      </ion-card>
+
+      <!-- News Section -->
+      <!-- Button to display the news -->
+
+      <button ion-button (click)="goNews()">News</button>
+      <br><br>
+
+
+
+    </div>
+  </div>
+</ion-content>

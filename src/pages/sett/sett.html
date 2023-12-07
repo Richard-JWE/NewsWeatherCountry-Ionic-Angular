@@ -1,0 +1,63 @@
+<!--
+  Generated template for the SettPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <p style="color: #ea6153;">
+          Please fill in to use service as intended
+        </p>
+
+        <form (ngSubmit)="setSettings(sett)">
+          <!--Whole List for the Form-->
+          <ion-list>
+
+            <ion-list>
+              <ion-item>
+                <ion-label position="floating" color="primary" stacked>City Name:</ion-label>
+                <ion-input type="text" [(ngModel)]="sett.location" name="location"
+                  placeholder="Enter City Name"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" color="primary" stacked>Country Code:</ion-label>
+                <ion-input type="text" [(ngModel)]="sett.country" name="name"
+                  placeholder="Enter Country Code (ie)"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating" color="primary" stacked>Unit Choice For Weather:</ion-label>
+              </ion-item>
+              <ion-list radio-group [(ngModel)]="sett.unit" name="unit">
+                <ion-item>
+                  <ion-label position="floating">Scientific</ion-label>
+                  <ion-radio value="S"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Metric</ion-label>
+                  <ion-radio value="M" checked></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Imperial</ion-label>
+                  <ion-radio value="I"></ion-radio>
+                </ion-item>
+              </ion-list>
+
+              <!--Button - Submit Form-->
+              <button ion-button type="submit">Save</button>
+            </ion-list>
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
